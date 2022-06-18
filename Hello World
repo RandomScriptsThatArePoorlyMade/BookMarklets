@@ -1,3 +1,5 @@
+//Cycles through favicons to say hello world on the tab that the script was run on, reload the page to stop it
+
 javascript: var $jscomp = $jscomp || {};
 $jscomp.scope = {};
 $jscomp.ASSUME_ES5 = !1;
