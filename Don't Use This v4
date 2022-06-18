@@ -1,3 +1,7 @@
+//Previous versions were never uploaded, this isn't useful in any way really
+//Its more just a thing I spent some time on that I felt like uploading somewhere, what it does...
+//Copy the code and paste it into the bar where the url goes for a bookmark. Name it whatever you want, and test it out
+
 javascript: var $jscomp = $jscomp || {};
 $jscomp.scope = {};
 $jscomp.ASSUME_ES5 = !1;
