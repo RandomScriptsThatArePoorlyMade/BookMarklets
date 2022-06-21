@@ -71,7 +71,8 @@ $jscomp.polyfillIsolated = function(a, b, c, d) {
         configurable: !0,
         writable: !0,
         value: b
-    }) : b !== c && (void 0 === $jscomp.propertyToPolyfillSymbol[e] && (c = 1E9 * Math.random() >>> 0, $jscomp.propertyToPolyfillSymbol[e] = $jscomp.IS_SYMBOL_NATIVE ? $jscomp.global.Symbol(e) : $jscomp.POLYFILL_PREFIX + c + "$" + e), $jscomp.defineProperty(d, $jscomp.propertyToPolyfillSymbol[e], {
+    }) : b !== c && (void 0 === $jscomp.propertyToPolyfillSymbol[e] && (c = 1E9 * Math.random() >>> 0, $jscomp.propertyToPolyfillSymbol[e] = $jscomp.IS_SYMBOL_NATIVE ?
+        $jscomp.global.Symbol(e) : $jscomp.POLYFILL_PREFIX + c + "$" + e), $jscomp.defineProperty(d, $jscomp.propertyToPolyfillSymbol[e], {
         configurable: !0,
         writable: !0,
         value: b
@@ -327,48 +328,49 @@ $jscomp.asyncExecutePromiseGeneratorFunction = function(a) {
 $jscomp.asyncExecutePromiseGeneratorProgram = function(a) {
     return $jscomp.asyncExecutePromiseGenerator(new $jscomp.generator.Generator_(new $jscomp.generator.Engine_(a)))
 };
-(function() {
-    var a = function(b) {
-        return new Promise(function(c) {
-            return setTimeout(c, b)
+var wait = function(a) {
+        return new Promise(function(b) {
+            return setTimeout(b, a)
         })
-    };
-    (function() {
-        var b, c;
-        return $jscomp.asyncExecutePromiseGeneratorProgram(function(d) {
-            switch (d.nextAddress) {
+    },
+    loop = function() {
+        var a, b;
+        return $jscomp.asyncExecutePromiseGeneratorProgram(function(c) {
+            switch (c.nextAddress) {
                 case 1:
-                    b = 1;
+                    a = 1;
                 case 2:
-                    if (!(0 <= b)) {
-                        d.jumpTo(0);
+                    if (!(0 <= a)) {
+                        c.jumpTo(0);
                         break
                     }
-                    c = document.querySelector("link[rel*=%27icon%27]") || document.createElement("link");
-                    c.type = "image/png";
-                    c.href = "https://favicon-generator.org/favicon-generator/htdocs/favicons/2015-01-30/a9be1eeb27707db5ed07cfcc6cffa26d.ico";
-                    return d.yield(a(1E3), 5);
+                    b = document.querySelector("link[rel*='icon']") || document.createElement("link");
+                    b.type = "image/png";
+                    b.href = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_H.ico";
+                    return c.yield(wait(500), 5);
                 case 5:
-                    return c.href = "https://a.espncdn.com/favicon.ico", d.yield(a(1E3), 6);
+                    return b.href =
+                        "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_E.ico", c.yield(wait(500), 6);
                 case 6:
-                    return c.href = "https://www.parallels.com/typo3conf/ext/prls_theme/Resources/Public/theme/res/img/favicon/favicon.png", d.yield(a(1E3), 7);
+                    return b.href = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_L.png", c.yield(wait(500), 7);
                 case 7:
-                    return c.href = "https://www.lexico.com/favicon-32x32.png", d.yield(a(1E3), 8);
+                    return b.href = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_L_2.png", c.yield(wait(500), 8);
                 case 8:
-                    return c.href = "https://global.oup.com/system/images/favicon.ico", d.yield(a(1E3), 9);
+                    return b.href = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_o_1.ico", c.yield(wait(500), 9);
                 case 9:
-                    return c.href = "https://en.wikipedia.org/static/favicon/wikipedia.ico", d.yield(a(1E3), 10);
+                    return b.href = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_w.ico", c.yield(wait(500), 10);
                 case 10:
-                    return c.href = "https://cdn-production-opera-website.operacdn.com/staticfiles/assets/images/favicon/favicon.12c955371a4b.ico", d.yield(a(1E3), 11);
+                    return b.href =
+                        "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_o_2.ico", c.yield(wait(500), 11);
                 case 11:
-                    return c.href = "https://www.rakuten.co.jp/favicon.ico", d.yield(a(1E3), 12);
+                    return b.href = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_R.ico", c.yield(wait(500), 12);
                 case 12:
-                    return c.href = "https://www.l.de/typo3conf/ext/lde/Resources/Public/Images/favicon_lde.png", d.yield(a(1E3), 13);
+                    return b.href = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_L_2.png", c.yield(wait(500), 13);
                 case 13:
-                    return c.href = "https://awscdn.detik.net.id/detikcom/images/favicon.ico?v=202206181563", d.yield(a(1500), 3);
+                    return b.href = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/Favicons/main/favicon_D.ico", c.yield(wait(500), 3);
                 case 3:
-                    b++, d.jumpTo(2)
+                    a++, c.jumpTo(2)
             }
         })
-    })()
-})();
+    };
+loop();
