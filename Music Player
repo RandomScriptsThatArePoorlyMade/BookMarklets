@@ -1,0 +1,10 @@
+//Does what it says, put in a url of an mp3 and it will play said mp3.
+//I have a repo of mp3s and the songs can be played with this url,
+//https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/Name of song.mp3
+
+javascript: var bgmusic = document.createElement("audio");
+bgmusic.id = "music";
+bgmusic.loop = "loop";
+bgmusic.src = prompt("Song,\n example: https:site.com/song.mp3\n If the song isn't looped it will just replay\nThe song in place is nyan cat looped, it can be changed to whatever is wanted", "https://web.archive.org/web/20150821045612/http://nyan.alternative.ly/nyanlooped.mp3");
+bgmusic.volume = prompt("Volume for the music,\n .009 is default. The max is 1", ".009");
+bgmusic.play();
