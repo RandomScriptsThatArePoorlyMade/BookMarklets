@@ -5,6 +5,6 @@
 javascript: var bgmusic = document.createElement("audio");
 bgmusic.id = "music";
 bgmusic.loop = "loop";
-bgmusic.src = prompt("Song,\n example: site.com/song.mp3.\n If the song isn't looped it will just replay,\nthe default song is nyan cat, but it can be changed to whatever you want.\n\n This is the url for a repo of mp3s that I put together for the music player, https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/Song Name.mp3", "https://web.archive.org/web/20150821045612/http://nyan.alternative.ly/nyanlooped.mp3");
+bgmusic.src = prompt("Song,\n example: site.com/song.mp3.\n If the song isn't looped it will just replay,\nthe default song is nyan cat, but it can be changed to whatever you want.\n\n The preset url contains other songs as well, just change the name before the .mp3", "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/Nyan.mp3");
 bgmusic.volume = prompt("Volume for the music,\n .009 is default. The max is 1", ".009");
 bgmusic.play();
