@@ -1,5 +1,5 @@
 //Credit to Krazete on github, https://github.com/Krazete/bookmarklets/blob/master/tri.js
-//All I did was incorporate the music player, add a button to change the song and/or volume, and change some of the default values of the 3D script
+//All I did was incorporate the music player, add a button to change the song, add a volume slider, and change some of the default values of the 3D script
 
 (function() {
   
@@ -7,8 +7,10 @@
 bgmusic.id = "music";
 bgmusic.loop = "loop";
 bgmusic.src = prompt("Song,\n example: site.com/song.mp3.\n If the song isn't looped it will just replay,\nthe default song is nyan cat, but it can be changed to whatever you want.\n\n The preset url contains other songs as well, just change the name before the .mp3", "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/Nyan.mp3");
-bgmusic.volume = prompt("Volume for the music,\n .009 is default. The max is 1", ".009");
+bgmusic.volume = 0.09;
 bgmusic.play();
+  
+   
   
 	var tri = {
 		menu: document.createElement("div"),
@@ -16,6 +18,7 @@ bgmusic.play();
 		gap: document.createElement("input"),
 		sag: document.createElement("input"),
 		fov: document.createElement("input"),
+        vol: document.createElement("input"),
 		flo: document.createElement("input"),
 		off: document.createElement("input"),
 		non: document.createElement("input"),
@@ -48,6 +51,10 @@ bgmusic.play();
 		updateBody: function() {
 			document.body.style.transform = "perspective(" + Math.pow(2, tri.fov.value) + "px) translateZ(-" + tri.gap.value + "px) rotateX(" + tri.orientation.pitch + "deg) rotateY(" + tri.orientation.yaw + "deg)";
 		},
+        updateVolume: function() {
+        var val = document.getElementById("volumei").value;
+        bgmusic.volume = val;
+        },
 		updateCSS: function() {
 			if (tri.non.checked)
 				tri.cssDynamic.innerHTML = "";
@@ -92,16 +99,16 @@ bgmusic.play();
 		},
       change: function() {
         bgmusic.src = prompt("Song,\n example: site.com/song.mp3.\n If the song isn't looped it will just replay,\nthe default song is nyan cat, but it can be changed to whatever you want.\n\n The preset url contains other songs as well, just change the name before the .mp3", "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/Nyan.mp3");
-        bgmusic.volume = prompt("Volume for the music,\n .009 is default. The max is 1", ".009");
         bgmusic.play();
       },
-		newRange: function(e, label, min, step, max, value, f) {
+		newRange: function(e, label, min, step, max, value, id, f) {
 			tri.menu.appendChild(e);
 			e.type = "range";
 			e.min = min;
 			e.max = max;
 			e.step = step;
 			e.value = value;
+            e.id = id;
 			e.addEventListener("input", f);
 			tri.menu.appendChild(document.createElement("span")).innerHTML = label;
 			tri.menu.appendChild(document.createElement("br"));
@@ -121,13 +128,14 @@ bgmusic.play();
 		},
 		init: function() {
 			document.body.parentNode.appendChild(tri.menu).id = "tri-menu";
-			tri.newRange(tri.limit, "limit", 0, 0.03125, 1, 0, tri.updateBody);
-			tri.newRange(tri.gap, "gap / distance", 0, 32, 512, 0, function() {
+			tri.newRange(tri.limit, "limit", 0, 0.03125, 1, 0, "limiti", tri.updateBody);
+			tri.newRange(tri.gap, "gap / distance", 0, 32, 512, 0, "gapi", function() {
 				tri.updateCSS();
 				tri.updateBody();
 			});
-			tri.newRange(tri.sag, "sag", -0.25, 0.03125, 0.25, -0.25, tri.updateCSS);
-			tri.newRange(tri.fov, "field of view", 7, 1, 13, 7, tri.updateBody);
+			tri.newRange(tri.sag, "sag", -0.25, 0.03125, 0.25, -0.25, "sagi", tri.updateCSS);
+			tri.newRange(tri.fov, "field of view", 7, 1, 13, 7, "fovi", tri.updateBody);
+            tri.newRange(tri.vol, "volume", 0, 0.001, 1, 0.09, "volumei", tri.updateVolume);
 			tri.newCheckbox(tri.flo, "force overflow", tri.updateCSS);
 			tri.flo.setAttribute("checked", "");
 			tri.newCheckbox(tri.off, "flatten layers", tri.updateCSS);
