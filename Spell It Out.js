@@ -1,4 +1,7 @@
- var phrase = sessionStorage.getItem("phrase");
+ window.addEventListener("beforeunload", function() {
+    sessionStorage.clear("phrase");
+  }); 
+var phrase = sessionStorage.getItem("phrase");
 if (!phrase) {
     phrase = prompt("Please enter phrase,\n\n No capitals, 27 character maximum");
     sessionStorage.setItem("phrase", phrase);
@@ -794,9 +797,6 @@ async function loopy() {
     if (letter27 == "y")(link.href = y);
     if (letter27 == "z")(link.href = z);
     await delay(1000);
-    window.addEventListener("beforeunload", function() {
-    sessionStorage.clear("phrase");
-  });
     loopy();
 }
 loopy();
