@@ -794,10 +794,9 @@ async function loopy() {
     if (letter27 == "y")(link.href = y);
     if (letter27 == "z")(link.href = z);
     await delay(1000);
+    window.addEventListener("beforeunload", function() {
+    sessionStorage.clear("phrase");
+  });
     loopy();
 }
 loopy();
-
- window.addEventListener("beforeunload", function() {
-    sessionStorage.clear("phrase");
-  });
