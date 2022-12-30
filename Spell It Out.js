@@ -797,8 +797,7 @@ async function loopy() {
     loopy();
 }
 loopy();
-(function() { 
+
  window.addEventListener("beforeunload", function() {
     sessionStorage.clear("phrase");
   });
- })();
