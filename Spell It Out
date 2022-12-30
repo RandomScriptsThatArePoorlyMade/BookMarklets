@@ -3,7 +3,6 @@ if (!phrase) {
     phrase = prompt("Please enter phrase,\n\n No capitals, 27 character maximum");
     sessionStorage.setItem("phrase", phrase);
 }
-
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
 }
