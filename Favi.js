@@ -1,6 +1,10 @@
  window.addEventListener("beforeunload", function() {
     sessionStorage.clear("phrase");
-  }); 
+  });
+var link = document.querySelector("link[rel*='icon']") || document.createElement('link');    
+link.type = 'image/png';    
+link.href = "";  
+document.getElementsByTagName('head')[0].appendChild(link);
 var phrase = sessionStorage.getItem("phrase");
 if (!phrase) {
     phrase = prompt("Please enter phrase,\n\n No capitals, 27 character maximum");
@@ -64,10 +68,9 @@ async function loopy() {
     var x = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/abc/main/x.ico";
     var y = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/abc/main/y.ico";
     var z = "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/abc/main/z.ico";
-    var link = document.querySelector("link[rel~='icon']");
+    link = document.querySelector("link[rel~='icon']");
     link = document.createElement('link');
     link.rel = 'icon';
-    document.getElementsByTagName('head')[0].appendChild(link);
     if (letter1 == "a")(link.href = a);
     if (letter1 == "b")(link.href = b);
     if (letter1 == "c")(link.href = c);
