@@ -71,6 +71,7 @@ async function loopy() {
     link = document.querySelector("link[rel~='icon']");
     link = document.createElement('link');
     link.rel = 'icon';
+    document.getElementsByTagName('head')[0].appendChild(link);
     if (letter1 == "a")(link.href = a);
     if (letter1 == "b")(link.href = b);
     if (letter1 == "c")(link.href = c);
