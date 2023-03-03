@@ -1,3 +1,6 @@
+(function noScroll() {
+    document.body.style.overflow = 'hidden';
+}());
 var startScreen = document.createElement("div");
 startScreen.style.position = "fixed";
 startScreen.style.top = "50%";
@@ -36,12 +39,12 @@ playButton.addEventListener("click", function() {
         player.style.left = "50%";
         player.style.transform = "translate(-50%, -50%)";
         document.body.appendChild(player);
-        var playerX = parseInt(player.style.left);
-        var playerY = parseInt(player.style.top);
+        var playerX = window.innerWidth / 2 - player.offsetWidth / 2;
+        var playerY = window.innerHeight / 2 - player.offsetHeight / 2;
 
         function updatePlayerPosition() {
-            player.style.left = playerX + "px";
-            player.style.top = playerY + "px";
+            player.style.left = `${playerX}px`;
+            player.style.top = `${playerY}px`;
             var circles = document.querySelectorAll(".circle");
             for (var i = 0; i < circles.length; i++) {
                 var circle = circles[i];
@@ -77,15 +80,61 @@ playButton.addEventListener("click", function() {
             }
         });
 
+        function handleMovement() {
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            const {
+                top,
+                left,
+                right,
+                bottom,
+                width,
+                height
+            } = player.getBoundingClientRect();
+
+            if (right > viewportWidth) {
+                playerX = 80 - width;
+                setTimeout(() => {
+                    player.style.left = `${playerX}px`;
+                    player.style.top = `${playerY}px`;
+                }, 200); 
+            }
+
+            if (bottom > viewportHeight) {
+                playerY = 80 - height;
+                setTimeout(() => {
+                    player.style.left = `${playerX}px`;
+                    player.style.top = `${playerY}px`;
+                }, 200); 
+            }
+
+            if (left < 0) {
+                playerX = -30 + viewportWidth;
+                setTimeout(() => {
+                    player.style.left = `${playerX}px`;
+                    player.style.top = `${playerY}px`;
+                }, 200); 
+            }
+
+            if (top < 0) {
+                playerY = -30 + viewportHeight;
+                setTimeout(() => {
+                    player.style.left = `${playerX}px`;
+                    player.style.top = `${playerY}px`;
+                }, 200); 
+            }
+        }
+
         function animate() {
             requestAnimationFrame(animate);
+            handleMovement();
             updatePlayerPosition();
         }
         animate();
         var score = 0;
         var scoreElement = document.createElement("div");
         scoreElement.style.position = "fixed";
-        scoreElement.style.top = "10px";
+        scoreElement.style.top = "15px";
         scoreElement.style.right = "-5px";
         scoreElement.style.fontSize = "35px";
         scoreElement.innerHTML = "Score: " + score;
@@ -95,7 +144,6 @@ playButton.addEventListener("click", function() {
             score++;
             scoreElement.innerHTML = "Score: " + score;
         }
-
         function isColliding(element1, element2) {
             var rect1 = element1.getBoundingClientRect();
             var rect2 = element2.getBoundingClientRect();
