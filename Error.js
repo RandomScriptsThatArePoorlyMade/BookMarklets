@@ -1,5 +1,3 @@
-//Creates fake errors accompanied by with the classic windows error sound
-
 javascript: 
    var bgmusic = document.createElement("audio");
     bgmusic.id = "music";
