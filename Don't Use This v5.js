@@ -1,5 +1,3 @@
-//Don't remember what I changed, forgot I made another iteration. Still very useless.
-
 javascript: var $jscomp = $jscomp || {};
 $jscomp.scope = {};
 $jscomp.ASSUME_ES5 = !1;
