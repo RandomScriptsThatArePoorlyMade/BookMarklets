@@ -1,6 +1,6 @@
 (function noScroll() {
     document.body.style.overflow = 'hidden';
-}());
+}()); 
 var startScreen = document.createElement("div");
 startScreen.style.position = "fixed";
 startScreen.style.top = "50%";
