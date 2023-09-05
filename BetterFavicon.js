@@ -1,5 +1,5 @@
  window.addEventListener("beforeunload", function() {
-     sessionStorage.clear("phrase");
+     sessionStorage.clear("phrase"); 
  });
  var link = document.querySelector("link[rel*='icon']") || document.createElement('link');
  link.type = 'image/png';
