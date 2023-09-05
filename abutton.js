@@ -9,7 +9,7 @@ javascript: (function() {
     button.style.top = '50%';
     button.style.left = '50%';
     button.style.transform = 'translate(-50%, -50%)';
-    button.style.zIndex = '9999';
+    button.style.zIndex = '9999999999999';
     button.style.cursor = 'pointer';
     document.body.appendChild(button);
 })();
