@@ -7,7 +7,7 @@
 document.getElementsByTagName('head')[0].appendChild(link);
 var phrase = sessionStorage.getItem("phrase");
 if (!phrase) {
-    phrase = prompt("Please enter phrase,\n\n27 character maximum");
+    phrase = prompt("Enter something\n\n No special characters work, just letters A-Z");
     sessionStorage.setItem("phrase", phrase);
 }
 
