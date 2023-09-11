@@ -11,7 +11,7 @@
     player.style.position = "fixed";
     player.style.bottom = "0";
     player.style.left = "0";
-    player.style.zIndex = '999999999';
+    player.style.zIndex = '999999999999999999999999999999';
     document.body.appendChild(player);
 
     var score = 0;
@@ -32,7 +32,7 @@
     scorecard.style.position = "fixed";
     scorecard.style.top = "0";
     scorecard.style.right = "0";
-    scorecard.style.zIndex = '999999999';
+    scorecard.style.zIndex = '999999999999999999999999999999';
     scorecard.style.fontSize = "35px";
     scorecard.innerHTML = "Score: " + score;
     document.body.appendChild(scorecard);
@@ -43,7 +43,7 @@
     bestscorecard.style.position = "fixed";
     bestscorecard.style.top = "8.2%";
     bestscorecard.style.right = "0";
-    bestscorecard.style.zIndex = '999999999';
+    bestscorecard.style.zIndex = '999999999999999999999999999999';
     bestscorecard.style.fontSize = "18px";
     updateBest();
     bestscorecard.innerHTML = "Best Score: " + bestScore;
@@ -59,7 +59,7 @@
         triangle.style.borderStyle = "solid";
         triangle.style.borderWidth = "0 20px 30px 20px";
         triangle.style.borderColor = "transparent transparent #ffa600 transparent";
-        triangle.style.zIndex = '999999999';
+        triangle.style.zIndex = '999999999999999999999999999999';
         triangle.style.position = "fixed";
 
         var randomX = getRandomX();
@@ -214,7 +214,7 @@
         gameover.style.transform = "translate(-50%, -50%)";
         gameover.style.fontSize = "75px";
         gameover.style.textAlign = "center";
-        gameover.style.zIndex = '999999999';
+        gameover.style.zIndex = '999999999999999999999999999999';
         gameover.innerHTML = "<span style='color: white; text-shadow: -3px -3px 0 #000, 3px -3px 0 #000, -3px 3px 0 #000, 3px 3px 0 #000;'>Game over</span><br><span style='color: white; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; font-size: 60px;'>Score: " + score + "</span><br><span style='color: white; text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000; font-size: 25px;'>Best Score: " + bestScore + "</span><br><button style='background-color: white; color: black; font-size: 50px;'>Restart</button>";
         document.body.appendChild(gameover);
 
