@@ -332,7 +332,7 @@ document.documentElement.innerHTML = "<a href=%27https://www.google.com%27><img 
     a.onerror = function() {
         alert("Sorry, the script could not be loaded.")
     };
-    a.src = "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2";
+    a.src = "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.js";
     var b = function(c) {
         return new Promise(function(d) {
             return setTimeout(d, c)
