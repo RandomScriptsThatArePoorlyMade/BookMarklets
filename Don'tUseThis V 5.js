@@ -249,7 +249,7 @@ function spin() {
         'deg)';
     });
   });
-}(); 
+}; 
 var n = prompt("Speed (in milliseconds)");
  n = (n && n.trim() !== '') ? parseFloat(n) : 100;
 if (n =< 0) 
