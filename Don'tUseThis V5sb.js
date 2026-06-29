@@ -232,13 +232,14 @@ $jscomp.generator.Context.prototype.jumpToEnd = function () {
   document.body.appendChild(script);
 })();
 
-function spin() {
-  var v = prompt("Intensity");
+ var v = prompt("Intensity");
   v = (v && v.trim() !== '') ? parseFloat(v) : 3;
 
   var z = prompt("Intensity 2? Will be negative");
   z = (z && z.trim() !== '') ? parseFloat(z) : 1;
 
+function spin() {
+ 
   ['', '-ms-', '-webkit-', '-o-', '-moz-'].map(function (prefix) {
     Array.prototype.slice.call(
       document.querySelectorAll('div,p,span,img,a,body')
