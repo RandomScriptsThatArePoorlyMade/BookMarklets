@@ -1,4 +1,4 @@
-javascript: var $jscomp = $jscomp || {};
+javascript: var $jscomp = $jscomp || {}; //Fairly sure that all of this does absolutely nothing, but it looks like code
 $jscomp.scope = {};
 $jscomp.ASSUME_ES5 = !1;
 $jscomp.ASSUME_NO_NATIVE_MAP = !1;
@@ -231,3 +231,29 @@ $jscomp.generator.Context.prototype.jumpToEnd = function () {
   script.crossOrigin = "anonymous";
   document.body.appendChild(script);
 })();
+
+function spin() {
+  var v = prompt("Intensity");
+  v = (v && v.trim() !== '') ? parseFloat(v) : 3;
+
+  var z = prompt("Intensity 2? Will be negative");
+  z = (z && z.trim() !== '') ? parseFloat(z) : 1;
+
+  ['', '-ms-', '-webkit-', '-o-', '-moz-'].map(function (prefix) {
+    Array.prototype.slice.call(
+      document.querySelectorAll('div,p,span,img,a,body')
+    ).map(function (el) {
+      el.style[prefix + 'transform'] =
+        'rotate(' +
+        (Math.floor(Math.random() * v) - z) +
+        'deg)';
+    });
+  });
+}(); 
+var n = prompt("Speed (in milliseconds)");
+ n = (n && n.trim() !== '') ? parseFloat(n) : 100;
+if (n =< 0) 
+{
+n = 100;
+}
+const intervalId = setInterval(spin, n);
