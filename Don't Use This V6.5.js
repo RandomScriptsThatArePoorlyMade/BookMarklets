@@ -1,7 +1,7 @@
 javascript: (function() {
     var script = document.createElement("script");
     script.src =
-        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.5.js";
+        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.js";
     script.crossOrigin = "anonymous";
     document.body.appendChild(script);
 })();
@@ -9,6 +9,8 @@ javascript: (function() {
 var v = 3;
 
 var z = 1;
+
+var n = 500;
 
 function spin() {
 
@@ -23,5 +25,5 @@ function spin() {
         });
     });
 };
-var n = 500;
+
 const intervalId = setInterval(spin, n);
