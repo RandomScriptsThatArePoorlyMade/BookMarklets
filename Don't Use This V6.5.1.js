@@ -1,16 +1,18 @@
-javascript: (function() {
-    var script = document.createElement("script");
-    script.src =
-        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.js";
-    script.crossOrigin = "anonymous";
-    document.body.appendChild(script);
-})();
+javascript: 
 
 var v = 3;
 
 var z = 1;
 
 var n = 500;
+
+(function() {
+    var script = document.createElement("script");
+    script.src =
+        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.1.js";
+    script.crossOrigin = "anonymous";
+    document.body.appendChild(script);
+})();
 
 function spin() {
 
