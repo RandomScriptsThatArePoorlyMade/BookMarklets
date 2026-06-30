@@ -80,14 +80,14 @@ bgmusic.play();
 				var gap = tri.gap.value / depth;
 				var sag = -Math.PI * tri.sag.value / depth;
 				tri.cssDynamic.innerHTML = `
-* {
+*:not(#tri-menu):not(#tri-menu *) {
 	transform: translateZ(${gap}px) rotateX(${sag}rad);
 	transform-style: preserve-3d;
 	transition: transform 1s;
 	outline: 1px solid rgba(0, 0, 0, 0.0625);
 	${tri.flo.checked ? "overflow: visible !important;" : ""}
 }
-*:hover {
+*:not(#tri-menu):not(#tri-menu *):hover {
 	transform: translateZ(${gap * 2}px) rotateX(${sag * 2}rad);
 	${!tri.flo.checked ? "overflow: visible;" : ""}
 }
