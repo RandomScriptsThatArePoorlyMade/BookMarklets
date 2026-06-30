@@ -6,7 +6,7 @@
   var bgmusic = document.createElement("audio");
 bgmusic.id = "music";
 bgmusic.loop = "loop";
-bgmusic.src = prompt("Song,\n example: site.com/song.mp3.\n If the song isn't looped it will just replay,\nthe default song is nyan cat, but it can be changed to whatever you want.\n\n The preset url contains other songs as well, just change the name before the .mp3", "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/Nyan.mp3");
+bgmusic.src = prompt("Song,\n example: site.com/song.mp3.\n If the song isn't looped it will just replay,\nthe default song is the Blue Danube Waltz, but it can be changed to whatever you want.\n\n The preset url contains other songs as well, just change the name before the .mp3\n Currently available songs from that url are Nyan, Bad, California Love, Going Up The Country (Remaster 2005), Frolic, Call Me Maybe, and The Blue Danube Waltz.\n Also, if you ever need to reset, press the letter 'r'.", "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/The Blue Danube Waltz.mp3");
 bgmusic.volume = 0.09;
 bgmusic.play();
   
@@ -19,6 +19,9 @@ bgmusic.play();
 		sag: document.createElement("input"),
 		fov: document.createElement("input"),
         vol: document.createElement("input"),
+		int: document.createElement("input"),
+		int2: document.createElement("input"),
+		spd: document.createElement("input"),
 		flo: document.createElement("input"),
 		off: document.createElement("input"),
 		non: document.createElement("input"),
@@ -55,6 +58,18 @@ bgmusic.play();
         var val = document.getElementById("volumei").value;
         bgmusic.volume = val;
         },
+		updateIntensity: function() {
+        var val = document.getElementById("inti").value;
+        v = val;
+		},
+		updateIntensity2: function() {
+        var val = document.getElementById("int2i").value;
+        z = val;
+			},
+		updateSpeed: function() {
+        var val = document.getElementById("spdi").value;
+        n = val;
+			},
 		updateCSS: function() {
 			if (tri.non.checked)
 				tri.cssDynamic.innerHTML = "";
@@ -80,12 +95,7 @@ bgmusic.play();
 			}
 		},
 		toggle: function() {
-			if (tri.menu.className == "active") {
-				tri.menu.removeAttribute("class");
-			}
-			else {
-				tri.menu.className = "active";
-			}
+				 tri.menu.classList.toggle("active");
 		},
 		quit: function() {
 			window.removeEventListener("deviceorientation", tri.gyroMove);
@@ -98,7 +108,7 @@ bgmusic.play();
 			document.body.removeAttribute("style");
 		},
       change: function() {
-        bgmusic.src = prompt("Song,\n example: site.com/song.mp3.\n If the song isn't looped it will just replay,\nthe default song is nyan cat, but it can be changed to whatever you want.\n\n The preset url contains other songs as well, just change the name before the .mp3", "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/Nyan.mp3");
+        bgmusic.src = prompt("Song,\n example: site.com/song.mp3.\n If the song isn't looped it will just replay,\nthe default song is the Blue Danube Waltz, but it can be changed to whatever you want.\n\n The preset url contains other songs as well, just change the name before the .mp3\n Currently available songs from that url are Nyan, Bad, California Love, Going Up The Country (Remaster 2005), Frolic, Call Me Maybe, and The Blue Danube Waltz.", "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/The Blue Danube Waltz.mp3");
         bgmusic.play();
       },
 		newRange: function(e, label, min, step, max, value, id, f) {
@@ -136,6 +146,9 @@ bgmusic.play();
 			tri.newRange(tri.sag, "sag", -0.25, 0.03125, 0.25, -0.25, "sagi", tri.updateCSS);
 			tri.newRange(tri.fov, "field of view", 7, 1, 13, 7, "fovi", tri.updateBody);
             tri.newRange(tri.vol, "volume", 0, 0.001, 1, 0.09, "volumei", tri.updateVolume);
+			tri.newRange(tri.int, "Intensity", 0, 0.001, 10000, 3, "inti", tri.updateIntensity);
+			tri.newRange(tri.int2, "Alt Intensity", 0, 0.001, 10000, 1, "int2i", tri.updateIntensity2);
+			tri.newRange(tri.spd, "Speed", 0, 0.001, 10000, 500, "spdi", tri.updateSpeed);
 			tri.newCheckbox(tri.flo, "force overflow", tri.updateCSS);
 			tri.flo.setAttribute("checked", "");
 			tri.newCheckbox(tri.off, "flatten layers", tri.updateCSS);
@@ -199,4 +212,19 @@ html, html:hover, #tri-menu, #tri-menu > *, #tri-menu > *:hover {
 		}
 	};
 	tri.init();
+function reset() {
+document.getElementById("inti").value = 0;
+	tri.updateIntensity;
+document.getElementById("int2i").value = 0;
+	tri.updateIntensity2;
+document.getElementById("spd").value = 0;
+	tri.updateSpeed;
+}
+	document.addEventListener("keydown", function(event) {
+        switch (event.keyCode) {
+            case 82:
+                reset();
+                break;
+		}
+	});
 })();
