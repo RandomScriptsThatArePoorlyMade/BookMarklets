@@ -25,7 +25,7 @@ function spin() {
 
     ['', '-ms-', '-webkit-', '-o-', '-moz-'].map(function(prefix) {
         Array.prototype.slice.call(
-            document.querySelectorAll('div,p,span,img,a,body')
+            document.querySelectorAll('div:not(#tri-menu):not(#tri-menu *),p,span,img,a,body')
         ).map(function(el) {
             el.style[prefix + 'transform'] =
                 'rotate(' +
