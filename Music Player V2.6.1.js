@@ -213,12 +213,12 @@ html, html:hover, #tri-menu, #tri-menu > *, #tri-menu > *:hover {
 	};
 	tri.init();
 function reset() {
-	var valz = 0
-document.getElementById("inti").value = valz;
+	var val = 0
+document.getElementById("inti").value = val;
 	v = val;
-document.getElementById("int2i").value = valz;
+document.getElementById("int2i").value = val;
 	z = val;
-document.getElementById("spd").value = valz;
+document.getElementById("spd").value = val;
 	n = 5000;
 }
 	document.addEventListener("keydown", function(event) {
