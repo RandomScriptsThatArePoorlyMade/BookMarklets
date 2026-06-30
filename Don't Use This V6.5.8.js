@@ -9,8 +9,15 @@ var n = 1000;
 (function() {
     var script = document.createElement("script");
     script.src =
-        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.7.js";
+        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.8.js?v=" + Date.now();
     script.crossOrigin = "anonymous";
+    script.onload = () => {
+    
+};
+
+script.onerror = e => {
+    console.error("Failed to load", e);
+};
     document.body.appendChild(script);
 })();
 
