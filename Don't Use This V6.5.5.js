@@ -9,7 +9,7 @@ var n = 1000;
 (function() {
     var script = document.createElement("script");
     script.src =
-        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.4.js";
+        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.5.js";
     script.crossOrigin = "anonymous";
     document.body.appendChild(script);
 })();
@@ -28,4 +28,21 @@ function spin() {
     });
 };
 
-const intervalId = setInterval(spin, n);
+let last = performance.now();
+let acc = 0;
+
+function loop(now) {
+  const delta = now - last;
+  last = now;
+
+  acc += delta;
+
+  if (acc >= n) {
+    spin();
+    acc = 0;
+  }
+
+  requestAnimationFrame(loop);
+}
+
+requestAnimationFrame(loop);
