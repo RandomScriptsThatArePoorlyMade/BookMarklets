@@ -9,7 +9,7 @@ var n = 1000;
 (function() {
     var script = document.createElement("script");
     script.src =
-        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.5.js";
+        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.6.js";
     script.crossOrigin = "anonymous";
     document.body.appendChild(script);
 })();
