@@ -218,7 +218,7 @@ document.getElementById("inti").value = val;
 	v = val;
 document.getElementById("int2i").value = val;
 	z = val;
-document.getElementById("spd").value = val;
+document.getElementById("spdi").value = val;
 	n = 5000;
 }
 	document.addEventListener("keydown", function(event) {
