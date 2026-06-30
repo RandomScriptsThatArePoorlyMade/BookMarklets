@@ -1,6 +1,5 @@
 //Credit to Krazete on github, https://github.com/Krazete/bookmarklets/blob/master/tri.js
 //All I did was incorporate the music player, add a button to change the song, add a volume slider, and change some of the default values of the 3D script
-console.log("start");
 
 (function() {
   
@@ -216,18 +215,25 @@ html, html:hover, #tri-menu, #tri-menu > *, #tri-menu > *:hover {
 		}
 	};
 	tri.init();
-
-	console.log("after init"); //temp
-console.log(document.getElementById("tri-menu")); //temp
 	
 function reset() {
-	var val = 0
-document.getElementById("inti").value = val;
-	v = val;
-document.getElementById("int2i").value = val;
-	z = val;
-document.getElementById("spdi").value = val;
-	n = 5000;
+document.getElementById("limiti").value = 0;
+document.getElementById("gapi").value = 0;
+document.getElementById("sagi").value = -0.25;
+document.getElementById("fovi").value = 7;
+document.getElementById("volumei").value = 0.09;
+document.getElementById("inti").value = 0;
+document.getElementById("int2i").value = 0;
+document.getElementById("spdi").value = 4000;
+tri.flo.checked = true;
+tri.off.checked = true;
+tri.non.checked = true;
+	tri.updateSpeed();
+	tri.updateVolume();
+	tri.updateIntensity();
+	tri.updateIntensity2();
+	tri.updateCSS();
+	tri.updateBody();
 }
 	document.addEventListener("keydown", function(event) {
         switch (event.keyCode) {
