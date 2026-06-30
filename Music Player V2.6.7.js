@@ -204,14 +204,6 @@ html, html:hover, #tri-menu, #tri-menu > *, #tri-menu > *:hover {
 	color: black;
 	border-radius: 8px 0 0 0;
 }
-#tri-menu,
-#tri-menu * {
-  transform: none !important;
-}
-
-#tri-menu.active {
-  transform: none !important;
-}
 `;
 			tri.menu.appendChild(tri.cssDynamic);
 			tri.updateCSS();
