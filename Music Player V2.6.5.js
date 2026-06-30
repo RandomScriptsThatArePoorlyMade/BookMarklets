@@ -106,6 +106,9 @@ bgmusic.play();
 			tri.cssStatic.remove();
 			tri.cssDynamic.remove();
 			document.body.removeAttribute("style");
+			v = 0;
+			z = 0;
+			n = 100000;
 		},
       change: function() {
         bgmusic.src = prompt("Song,\n example: site.com/song.mp3.\n If the song isn't looped it will just replay,\nthe default song is the Blue Danube Waltz, but it can be changed to whatever you want.\n\n The preset url contains other songs as well, just change the name before the .mp3\n Currently available songs from that url are Nyan, Bad, California Love, Going Up The Country (Remaster 2005), Frolic, Call Me Maybe, and The Blue Danube Waltz.", "https://raw.githubusercontent.com/RandomScriptsThatArePoorlyMade/mp3s/main/The Blue Danube Waltz.mp3");
@@ -148,7 +151,7 @@ bgmusic.play();
             tri.newRange(tri.vol, "volume", 0, 0.001, 1, 0.09, "volumei", tri.updateVolume);
 			tri.newRange(tri.int, "Intensity", 0, 0.01, 10, 0, "inti", tri.updateIntensity);
 			tri.newRange(tri.int2, "Alt Intensity", 0, 0.01, 10, 0, "int2i", tri.updateIntensity2);
-			tri.newRange(tri.spd, "Speed", 0, 0.01, 4999, 1000, "spdi", tri.updateSpeed);
+			tri.newRange(tri.spd, "Speed", 0, 0.1, 4999.9, 4000, "spdi", tri.updateSpeed);
 			tri.newCheckbox(tri.flo, "force overflow", tri.updateCSS);
 			tri.flo.setAttribute("checked", "");
 			tri.newCheckbox(tri.off, "flatten layers", tri.updateCSS);
@@ -200,6 +203,14 @@ html, html:hover, #tri-menu, #tri-menu > *, #tri-menu > *:hover {
 	background: white;
 	color: black;
 	border-radius: 8px 0 0 0;
+}
+#tri-menu,
+#tri-menu * {
+  transform: none !important;
+}
+
+#tri-menu.active {
+  transform: none !important;
 }
 `;
 			tri.menu.appendChild(tri.cssDynamic);
