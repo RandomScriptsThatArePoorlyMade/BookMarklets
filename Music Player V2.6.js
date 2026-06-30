@@ -68,7 +68,7 @@ bgmusic.play();
 			},
 		updateSpeed: function() {
         var val = document.getElementById("spdi").value;
-        n = val;
+        n = 5000 - val;
 			},
 		updateCSS: function() {
 			if (tri.non.checked)
@@ -146,9 +146,9 @@ bgmusic.play();
 			tri.newRange(tri.sag, "sag", -0.25, 0.03125, 0.25, -0.25, "sagi", tri.updateCSS);
 			tri.newRange(tri.fov, "field of view", 7, 1, 13, 7, "fovi", tri.updateBody);
             tri.newRange(tri.vol, "volume", 0, 0.001, 1, 0.09, "volumei", tri.updateVolume);
-			tri.newRange(tri.int, "Intensity", 0, 0.001, 10000, 3, "inti", tri.updateIntensity);
-			tri.newRange(tri.int2, "Alt Intensity", 0, 0.001, 10000, 1, "int2i", tri.updateIntensity2);
-			tri.newRange(tri.spd, "Speed", 0, 0.001, 10000, 500, "spdi", tri.updateSpeed);
+			tri.newRange(tri.int, "Intensity", 0, 0.01, 5000, 3, "inti", tri.updateIntensity);
+			tri.newRange(tri.int2, "Alt Intensity", 0, 0.01, 5000, 1, "int2i", tri.updateIntensity2);
+			tri.newRange(tri.spd, "Speed", 0, 0.01, 4999.9, 500, "spdi", tri.updateSpeed);
 			tri.newCheckbox(tri.flo, "force overflow", tri.updateCSS);
 			tri.flo.setAttribute("checked", "");
 			tri.newCheckbox(tri.off, "flatten layers", tri.updateCSS);
@@ -213,12 +213,13 @@ html, html:hover, #tri-menu, #tri-menu > *, #tri-menu > *:hover {
 	};
 	tri.init();
 function reset() {
-document.getElementById("inti").value = 0;
-	tri.updateIntensity;
-document.getElementById("int2i").value = 0;
-	tri.updateIntensity2;
-document.getElementById("spd").value = 0;
-	tri.updateSpeed;
+	var valz = 0
+document.getElementById("inti").value = valz;
+	v = val;
+document.getElementById("int2i").value = valz;
+	z = val;
+document.getElementById("spd").value = valz;
+	n = 5000;
 }
 	document.addEventListener("keydown", function(event) {
         switch (event.keyCode) {
