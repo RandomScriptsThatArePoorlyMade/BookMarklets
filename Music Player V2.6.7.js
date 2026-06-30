@@ -1,5 +1,6 @@
 //Credit to Krazete on github, https://github.com/Krazete/bookmarklets/blob/master/tri.js
 //All I did was incorporate the music player, add a button to change the song, add a volume slider, and change some of the default values of the 3D script
+console.log("start");
 
 (function() {
   
@@ -215,6 +216,10 @@ html, html:hover, #tri-menu, #tri-menu > *, #tri-menu > *:hover {
 		}
 	};
 	tri.init();
+
+	console.log("after init"); //temp
+console.log(document.getElementById("tri-menu")); //temp
+	
 function reset() {
 	var val = 0
 document.getElementById("inti").value = val;
