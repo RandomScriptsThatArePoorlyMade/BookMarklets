@@ -1,15 +1,15 @@
 javascript: 
 
-var v = 3;
+var v = 0;
 
-var z = 1;
+var z = 0;
 
-var n = 500;
+var n = 1000;
 
 (function() {
     var script = document.createElement("script");
     script.src =
-        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.3.js";
+        "//cdn.jsdelivr.net/gh/RandomScriptsThatArePoorlyMade/BookMarklets@Scripts/Music Player V2.6.4.js";
     script.crossOrigin = "anonymous";
     document.body.appendChild(script);
 })();
